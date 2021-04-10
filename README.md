@@ -28,3 +28,9 @@ I don't assume responsibility if your account gets banned for using this tool.
  2. If this is the first time running it you will need to create a login cookie.
  3. In order to create the cookie log into your 'scrap.tf' account, write "ready" in terminal after that.
  4. Enjoy :)
+
+
+### Donations
+
+Please don't feel obligated to so, i write code because i want to learn and i shared this one so others can learn from it.
+IF you want to donate you can do so via PayPal using the following link: https://paypal.me/pialex2032?locale.x=en_US
