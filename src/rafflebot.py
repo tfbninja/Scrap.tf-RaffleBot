@@ -28,6 +28,7 @@ class RaffleBot:
         print('Total raffles: {}'.format(len(self.allraffles)))
         print('Unentered raffles: {}'.format(len(self.unenteredraffles)), end='\n\n')
         self.enterAllRaffles()
+        print('Finished all raffles')
 
     def checkCookie(self):
         if os.path.isfile(self.cookiefile):  # check cookiefile existence
