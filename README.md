@@ -17,8 +17,8 @@ I don't assume responsibility if your account gets banned for using this tool.
  
  1. A Windows/Linux machine.
  3. Python 3.8 or later
- 4. Selenium and bs4
-	You can install them using "pip install selenium" and "pip install bs4"
+ 4. Selenium, bs4 and requests
+	You can install them using "pip install selenium" and "pip install bs4" and "pip install requests"
 
 ---
 
