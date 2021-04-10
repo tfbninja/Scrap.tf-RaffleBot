@@ -1,8 +1,11 @@
 # Scrap.tf-RaffleBot
 
 A bot that enters raffles on Scrap.tf automaticly.
+
 Selenium is used to fetch the login cookies.
+
 Chromium and it's Webdriver are downloaded automatically if not already present.
+
 After the login is made the raffles are entered using requests.
 
 ---
@@ -33,4 +36,5 @@ I don't assume responsibility if your account gets banned for using this tool.
 ### Donations
 
 Please don't feel obligated to so, i write code because i want to learn and i shared this one so others can learn from it.
+
 IF you want to donate you can do so via PayPal using the following link: https://paypal.me/pialex2032?locale.x=en_US
