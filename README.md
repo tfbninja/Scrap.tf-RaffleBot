@@ -37,4 +37,4 @@ I don't assume responsibility if your account gets banned for using this tool.
 
 Please don't feel obligated to so, i write code because i want to learn and i shared this one so others can learn from it.
 
-IF you want to donate you can do so via PayPal using the following link: https://paypal.me/pialex2032?locale.x=en_US
+If you want to donate you can do so via PayPal using the following link: https://paypal.me/pialex2032?locale.x=en_US
