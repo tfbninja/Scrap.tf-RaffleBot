@@ -84,12 +84,15 @@ class RaffleBot:
 
         data = {"start": "", "sort": "0", "puzzle": "0", "csrf": self.csrf}
         url = "https://scrap.tf:443/ajax/raffles/Paginate"
+        lid=[];
         while True:
             response = self.session.post(url, data=data).json()
-            if not response['html']:
+            print(response['lastid'])
+            if response['lastid'] in lid:
                 break
             self.parseRaffles(response['html'])
             data['start'] = response['lastid']
+            lid.append(response['lastid'])
 
     def parseRaffles(self, htmldata):
         soup = BeautifulSoup(htmldata, 'html.parser')
@@ -101,6 +104,8 @@ class RaffleBot:
             raffledata['id'] = raffledata['relative_url'].split('/')[-1]
             raffledata['entered'] = True if raffle['class'] == ['panel-raffle', 'raffle-entered'] else False
             raffledata['absurl'] = 'https://scrap.tf' + raffledata['relative_url']
+            if raffledata['absurl'] in [x['absurl'] for x in self.allraffles]:
+                continue
             self.allraffles.append(raffledata)
             if raffledata['entered'] == False:
                 self.unenteredraffles.append(raffledata)

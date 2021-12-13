@@ -7,7 +7,7 @@ import shutil
 
 
 def getChromiumDownloadUrls(os):
-    if (os == "posix"):
+    if (os == "linux"):
         chromium_last_v_url = "https://www.googleapis.com/download/storage/v1/b/" \
                               "chromium-browser-snapshots/o/Linux_x64%2FLAST_CHANGE?alt=media"
         chromium_last_v = get(chromium_last_v_url).text
@@ -38,7 +38,7 @@ def fileLocations(path):
     if sys.platform == 'win32':
         webdriver_path = os.path.join(path, 'chromium', 'chromedriver_win32', 'chromedriver.exe')
         chromium_path = os.path.join(path, 'chromium', 'chrome-win', 'chrome.exe')
-    elif sys.platform == 'posix':
+    elif sys.platform == 'linux':
         webdriver_path = os.path.join(path, 'chromium', 'chromedriver_linux64', 'chromedriver')
         chromium_path = os.path.join(path, 'chromium', 'chrome-linux', 'chrome')
     return webdriver_path, chromium_path
@@ -53,9 +53,8 @@ def chromiumdl(path, removeold=False):
             return fileLocations(path)
     os.mkdir(chromium_path)
     operating_system = sys.platform
-    os_parse = {"win32": "Windows", "posix": "linux"}
     chrome_driver_url, chromium_url = getChromiumDownloadUrls(operating_system)
-    print("Detected OS: " + os_parse[operating_system])
+    print("Detected OS: " + sys.platform)
     print("Downloading Chromium")
     chromiumzip = downloadArchiveToMemory(chromium_url)
     print("Chromium finished downloading")
