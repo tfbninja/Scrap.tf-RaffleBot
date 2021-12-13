@@ -2,9 +2,21 @@ from requests import get
 import os
 import sys
 from io import BytesIO
-from zipfile import ZipFile
+from zipfile import ZipFile, ZipInfo
 import shutil
 
+
+class ZipFileWithPermissions(ZipFile):
+    def _extract_member(self, member, targetpath, pwd):
+        if not isinstance(member, ZipInfo):
+            member = self.getinfo(member)
+
+        targetpath = super()._extract_member(member, targetpath, pwd)
+
+        attr = member.external_attr >> 16
+        if attr != 0:
+            os.chmod(targetpath, attr)
+        return targetpath
 
 def getChromiumDownloadUrls(os):
     if (os == "linux"):
@@ -30,7 +42,7 @@ def getChromiumDownloadUrls(os):
 
 def downloadArchiveToMemory(url):
     data = get(url).content
-    zip = ZipFile(BytesIO(data))
+    zip = ZipFileWithPermissions(BytesIO(data))
     return zip;
 
 
