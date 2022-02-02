@@ -84,9 +84,11 @@ class RaffleBot:
 
         data = {"start": "", "sort": "0", "puzzle": "0", "csrf": self.csrf}
         url = "https://scrap.tf:443/ajax/raffles/Paginate"
-        lid=[];
+        lid=[]
         while True:
             response = self.session.post(url, data=data).json()
+            if response['done']:
+                break
             print(response['lastid'])
             if response['lastid'] in lid:
                 break
